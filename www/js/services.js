@@ -7,7 +7,7 @@ angular.module('todo.services', [])
             var deferred = $q.defer();
             var promise = deferred.promise;
 
-            $http.post("http://localhost:3333/authenticate", credentials).then(function (response) {
+            $http.post("/api/authenticate", credentials).then(function (response) {
                 if (response.data.success) {
                     $localStorage.setObject('user', response.data.user);
                     $localStorage.set('token', response.data.token);
@@ -56,7 +56,7 @@ angular.module('todo.services', [])
         //For each request the interceptor will set the bearer token header.
         request: function ($config) {
             //set authorization header
-            $config.headers['x-access-token'] = $localStorage.get['token'];;
+            $config.headers['x-access-token'] = $localStorage.get('token');
 
             return $config;
         },
@@ -81,7 +81,7 @@ angular.module('todo.services', [])
 
     return {
         getTodos: function () {
-            return $http.get('http://localhost:3333/todos', {
+            return $http.get('/api/todos', {
                 headers: {
                     'x-access-token': $localStorage.get('token')
                 }
@@ -93,7 +93,7 @@ angular.module('todo.services', [])
         },
 
         postTodo: function (todo) {
-            return $http.post('http://localhost:3333/addtodo', todo, {
+            return $http.post('/api/addtodo', todo, {
                 headers: {
                     'x-access-token': $localStorage.get('token')
                 }

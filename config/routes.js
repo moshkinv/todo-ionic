@@ -16,19 +16,6 @@ router.get('/api/todos/:id', actions.getTodoById);
 
 router.post('/api/addtodo', actions.addTodo);
 
-//router.post('/authenticate', auth.authenticate);
-//router.post('/register', auth.register);
-//
-//router.all('/*', auth.isAuthenticated);
-//
-//router.get('/users', actions.getUsers);
-//
-//router.get('/todos', actions.getTodos);
-//router.get('/todos/:id', actions.getTodoById);
-//
-//router.post('/addtodo', actions.addTodo);
-
-
 router.get('/', function (req, res) {
     res.sendFile(path.resolve('.') + '/www/index.html');
     //__dirname : It will resolve to your project folder.

@@ -1,7 +1,7 @@
 <ion-view view-title="Todo List">
     <ion-content>
         <ion-list>
-            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="td in todos" type="item-text-wrap" href="#/tab/todo/{{td._id}}">
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="td in todos" type="item-text-wrap" ng-click="todoSelect(td)">
                 <img ng-src="{{td.face}}">
                 <h2>{{td.title}}</h2>
                 <p>{{td.description}}</p>

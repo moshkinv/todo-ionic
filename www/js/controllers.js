@@ -15,10 +15,14 @@ angular.module('todo.controllers', [])
     }
 })
 
-.controller('TodoCtrl', function ($scope, DataService) {
+.controller('TodoCtrl', function ($scope, $state, DataService) {
     DataService.getTodos().success(function (res) {
         $scope.todos = res;
     });
+
+    $scope.todoSelect = function (td) {
+        //$state.go('tab.todo-detail', td);
+    };
 })
 
 .controller('LoginCtrl', function ($scope, LoginService, $ionicPopup, $state) {
