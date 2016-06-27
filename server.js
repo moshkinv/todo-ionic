@@ -1,11 +1,11 @@
-var mongoose = require('mongoose');
-var express = require('express');
-var cors = require('cors');
-var morgan = require('morgan');
-var config = require('./config/database');
-var routes = require('./config/routes');
-var bodyParser = require('body-parser');
-//var gulp = require('./gulpfile');
+var mongoose = require('mongoose'),
+    express = require('express'),
+    cors = require('cors'),
+    morgan = require('morgan'),
+    config = require('./config/database'),
+    routes = require('./config/routes'),
+    bodyParser = require('body-parser')
+    //var gulp = require('./gulpfile');
 
 mongoose.connect(config.database);
 
@@ -18,7 +18,8 @@ mongodb.on('error', function (e) {
 mongodb.on('open', function () {
     console.log('Mongo is running!');
 
-    var app = express();
+    var port = 27019,
+        app = express();
 
     // static folders for html resources
     app.use('/css', express.static('./www/css'));
@@ -35,7 +36,7 @@ mongodb.on('open', function () {
     app.use(bodyParser.json());
     app.use(routes);
 
-    app.listen(8080, function () {
-        console.log('Server is running!');
+    app.listen(27019, function () {
+        console.log('Server is running on port ', port);
     });
 });
