@@ -35,7 +35,7 @@ mongodb.on('open', function () {
     app.use(bodyParser.json());
     app.use(routes);
 
-    app.listen(3333, function () {
+    app.listen(8080, function () {
         console.log('Server is running!');
     });
 });
